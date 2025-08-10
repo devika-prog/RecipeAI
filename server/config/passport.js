@@ -3,6 +3,8 @@ const passport = require('passport');
 //const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('../models/User');
 
+
+//Defines how to serialize/deserialize users for sessions.
 passport.serializeUser((user, done) => {
   done(null, user.id); // serialize by MongoDB _id
 });
@@ -18,6 +20,7 @@ passport.deserializeUser(async (id, done) => {
 //const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
+//Handles OAuth client ID/secret setup and callback processing.
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,

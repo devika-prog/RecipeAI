@@ -1,3 +1,6 @@
+//Contains the code to connect backend to MongoDB using Mongoose
+//Ensures your app can read/write user data, favorites, etc.
+
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 

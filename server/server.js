@@ -1,6 +1,10 @@
+//backend entry point — sets up Express server.
 const express = require('express');
 const cors = require('cors');
+
+//Loads environment variables (dotenv)
 const dotenv = require('dotenv');
+
 const connectDB = require('./config/db');
 const session = require('express-session');
 const passport = require('passport');
@@ -14,6 +18,8 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+//Configures middleware 
+//like CORS, JSON parsing, sessions, and Passport for authentication
 // Passport config
 require('./config/passport');
 
@@ -37,6 +43,7 @@ app.use(passport.session());
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/favorites', require('./routes/favoritesRoutes'));
+//connect routes
 app.use('/api/recipes', require('./routes/recipeRoutes'));
 
 
@@ -44,6 +51,7 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+//Starts listening on a port (usually 5000).
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {

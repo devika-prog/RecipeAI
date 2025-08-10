@@ -1,13 +1,15 @@
+//defines authentication routes
+
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-// Start Google OAuth login flow
+// Start Google OAuth login flow (sign in)
 router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
-// Handle callback from Google
+// Handle callback from Google (OAuth response)
 router.get('/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/login-failure',
