@@ -33,7 +33,7 @@ RecipeAI is a full-stack web application that allows users to search for recipes
 - OpenAI API key ([sign up here](https://platform.openai.com/signup))
 - Google OAuth credentials ([set up here](https://console.cloud.google.com/apis/credentials))
 
-### Setup
+## Setup
 
 1. **Clone the repo**
 
@@ -41,77 +41,54 @@ RecipeAI is a full-stack web application that allows users to search for recipes
    git clone https://github.com/yourusername/RecipeAI.git
    cd RecipeAI
 
-Backend Setup
+2. **Backend Setup**
 
-bash
-Copy
-Edit
-cd server
-npm install
-Create a .env file in the server directory with the following variables:
+         cd server
+         npm install
 
-env
-Copy
-Edit
-PORT=5000
-MONGO_URI=your_mongo_uri
-SESSION_SECRET=your_session_secret
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
-SPOONACULAR_API_KEY=your_spoonacular_api_key
-OPENAI_API_KEY=your_openai_api_key
-Start the backend server
+3. **Create a .env file in the server directory with the following variables:**
 
-bash
-Copy
-Edit
-npm run dev
-Frontend Setup
+         PORT=5000
+         MONGO_URI=your_mongo_uri
+         SESSION_SECRET=your_session_secret
+         GOOGLE_CLIENT_ID=your_google_client_id
+         GOOGLE_CLIENT_SECRET=your_google_client_secret
+         GOOGLE_CALLBACK_URL=http://localhost:5000/api/auth/google/callback
+         SPOONACULAR_API_KEY=your_spoonacular_api_key
+         OPENAI_API_KEY=your_openai_api_key
 
-bash
-Copy
-Edit
-cd ../client
-npm install
-npm start
-The frontend will open at http://localhost:3000.
+4. **Start the backend server**
 
-Usage
-Go to the homepage and log in with Google.
+         npm run dev
 
-Navigate to the Dashboard.
+5. **Frontend Setup**
 
-Search for recipes by entering ingredients separated by commas.
+         cd ../client
+         npm install
+         npm start
 
-View search results from Spoonacular.
+   The frontend will open at http://localhost:3000.
 
-Generate AI-created recipes dynamically using the “Generate Recipe” feature.
+## Usage
+- Go to the homepage and log in with Google.
 
-Click a recipe to view detailed information.
+- Navigate to the Dashboard.
 
-Project Structure
-bash
-Copy
-Edit
-/server         # Express backend
-  /config       # DB and Passport config
-  /middleware   # Auth middleware
-  /models       # MongoDB models
-  /routes       # API routes (auth, recipes, favorites)
-  server.js     # Entry point
+- Search for recipes by entering ingredients separated by commas.
 
-/client         # React frontend
-  /components   # Reusable components like RecipeSearch
-  /pages        # Pages like Home, Dashboard, RecipeDetails
-  App.js        # Main app with routing
-Notes
+- View search results from Spoonacular.
+
+- Generate AI-created recipes dynamically using the “Generate Recipe” feature.
+
+- Click a recipe to view detailed information.
+
+
+## Notes
 Make sure your .env file is included in .gitignore to keep secrets safe.
 
 AI integration uses OpenAI GPT to generate recipe content dynamically.
 
 The app uses session cookies for auth; CORS is configured accordingly.
 
-License
-MIT License
+
 
